@@ -16,8 +16,6 @@ class SplashViewController: UIViewController {
     @IBOutlet private weak var welcomelbl: UILabel!
     @IBOutlet private weak var loadingProgress: UIProgressView!
     
-    // MARK: - Properties
-    
     // MARK: - VC lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,38 +45,6 @@ class SplashViewController: UIViewController {
         if loadingProgress.progress >= 1.0 {
             Timer().invalidate()
         }
-    }
-}
-
-
-class FirebaseRemoteConfigManager {
-    static let shared = FirebaseRemoteConfigManager()
-    
-    private init() {
-        setupRemoteConfigDefaults()
-    }
-    
-    private func setupRemoteConfigDefaults() {
-        let defaults: [String: NSObject] = [
-            "welcome_message": "Welcome to our app!" as NSObject,
-        ]
-        
-        RemoteConfig.remoteConfig().setDefaults(defaults)
-    }
-    
-    func fetchRemoteConfig(completion: @escaping (Error?) -> Void) {
-        RemoteConfig.remoteConfig().fetch { status, error in
-            if status == .success {
-                RemoteConfig.remoteConfig().activate(completion: nil)
-                completion(nil)
-            } else {
-                completion(error)
-            }
-        }
-    }
-    
-    func getConfigValue(forKey key: String) -> String {
-        return RemoteConfig.remoteConfig()[key].stringValue ?? ""
     }
 }
 

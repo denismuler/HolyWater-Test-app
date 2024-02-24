@@ -6,9 +6,7 @@
 //
 
 import Foundation
-import RxCocoa
 import RxDataSources
-
 import RxSwift
 
 class BooksViewModel {

@@ -89,10 +89,9 @@ class RecommendedViewController: UIViewController {
         layout.numberOfVisibleItems = 4
         carouselCollectionView.collectionViewLayout = layout
         carouselCollectionView.isPagingEnabled = true
-        carouselCollectionView.register(CarouselTestCollectionViewCell.nib, forCellWithReuseIdentifier: CarouselTestCollectionViewCell.identifier)
+        carouselCollectionView.register(CarouselCollectionViewCell.nib, forCellWithReuseIdentifier: CarouselCollectionViewCell.identifier)
         carouselCollectionView.dataSource = self
         carouselCollectionView.delegate = self
-        
         
         youWillAlsoLikeCollectionView.register(BookCollectionViewCell.nib, forCellWithReuseIdentifier: BookCollectionViewCell.identifier)
         youWillAlsoLikeCollectionView.dataSource = self
@@ -165,7 +164,7 @@ extension RecommendedViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == carouselCollectionView {
-            let carCell = carouselCollectionView.dequeueReusableCell(withReuseIdentifier: CarouselTestCollectionViewCell.identifier, for: indexPath) as! CarouselTestCollectionViewCell
+            let carCell = carouselCollectionView.dequeueReusableCell(withReuseIdentifier: CarouselCollectionViewCell.identifier, for: indexPath) as! CarouselCollectionViewCell
             let carousel = carouselModel[indexPath.row]
             carCell.configure(image: carousel.coverUrl, book: carousel.name, author: carousel.author)
             return carCell

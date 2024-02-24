@@ -7,43 +7,36 @@
 
 import UIKit
 import CollectionViewPagingLayout
+import SDWebImage
 
 class CarouselCollectionViewCell: UICollectionViewCell {
 
-    var card: UIView!
+    class var identifier: String { return String(describing: self) }
+    class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
+    
+    @IBOutlet private weak var cellImage: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        cellImage.layer.cornerRadius = 16
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setup()
-    }
-    
-    func setup() {
-        // Adjust the card view frame
-        // you can use Auto-layout too
-        let cardFrame = CGRect(
-            x: 80,
-            y: 100,
-            width: frame.width - 160,
-            height: frame.height - 200
-        )
-        card = UIView(frame: cardFrame)
-        card.backgroundColor = .systemOrange
-        contentView.addSubview(card)
+    func configure(image: String, book: String, author: String) {
+        guard let imageUrl = URL(string: image) else { return }
+        cellImage.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "im_placeholder"))
     }
 }
 
 extension CarouselCollectionViewCell: ScaleTransformView {
     var scaleOptions: ScaleTransformViewOptions {
         ScaleTransformViewOptions(
-            minScale: 0.6,
-            scaleRatio: 0.4,
-            translationRatio: CGPoint(x: 0.66, y: 0.2),
-            maxTranslationRatio: CGPoint(x: 2, y: 0)
+            minScale: 0.8,
+            scaleRatio: 1.0,
+            translationRatio: CGPoint(x: 0.90, y: 0.2),
+            maxTranslationRatio: CGPoint(x: 2, y: 0),
+            shadowEnabled: true
             )
     }
+    
 }

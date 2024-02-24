@@ -11,5 +11,6 @@ target 'HolyWater-Test' do
   pod 'FirebaseRemoteConfig'
   pod 'SDWebImage'
   pod 'CollectionViewPagingLayout'
+  pod 'InfiniteCarouselCollectionView'
 
 end

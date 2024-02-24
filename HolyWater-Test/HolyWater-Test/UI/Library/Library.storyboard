@@ -147,7 +147,7 @@
                                     <constraint firstItem="CK2-A5-gaY" firstAttribute="leading" secondItem="7fT-PH-zIo" secondAttribute="leading" id="uZB-KT-j3U"/>
                                 </constraints>
                             </scrollView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4m0-6n-ntA">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4m0-6n-ntA" customClass="CarouselCollectionView" customModule="InfiniteCarouselCollectionView">
                                 <rect key="frame" x="0.0" y="79" width="393" height="160"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -181,7 +181,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bannerCollectionView" destination="4m0-6n-ntA" id="1F5-Zz-Ou2"/>
+                        <outlet property="bannerCollectionView" destination="4m0-6n-ntA" id="wcG-Ba-1RV"/>
                         <outlet property="fantasyCollectionView" destination="Kky-CY-pVc" id="HgC-FD-Hyc"/>
                         <outlet property="fantasyHeight" destination="PNf-Pg-7ZW" id="emq-Z8-eNh"/>
                         <outlet property="newArrivalsCollectionView" destination="cav-nk-XHT" id="YB6-jw-8pC"/>

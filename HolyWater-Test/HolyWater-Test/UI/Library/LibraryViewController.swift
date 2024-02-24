@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxDataSources
+import InfiniteCarouselCollectionView
 
 enum Defaults {
     static let width = UIScreen.main.bounds.width
@@ -20,7 +21,7 @@ class LibraryViewController: UIViewController {
     @IBOutlet private weak var romanceCollectionView: UICollectionView!
     @IBOutlet private weak var fantasyCollectionView: UICollectionView!
     @IBOutlet private weak var scienceCollectionView: UICollectionView!
-    @IBOutlet private weak var bannerCollectionView: UICollectionView!
+    @IBOutlet private weak var bannerCollectionView: CarouselCollectionView!
     
     @IBOutlet private weak var pageControl: UIPageControl!
     
@@ -39,10 +40,8 @@ class LibraryViewController: UIViewController {
     private var scienceBooks: [Book] = []
     private var bannerSlides: [Banner] = []
     
-    private var sections: [Section] = []
-    
-    private var timer: Timer?
     private var currentCellIndex = 0
+    
     // MARK: - VC lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,24 +52,10 @@ class LibraryViewController: UIViewController {
         setupNavBarAppearance()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        startTimer()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        timer?.invalidate()
-    }
-    
     // MARK: - Private methods
-    private func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(moveToNextBanner), userInfo: nil, repeats: true)
-    }
-    
     private func setupUI() {
         pageControl.numberOfPages = bannerSlides.count
-
+        pageControl.isUserInteractionEnabled = false
         newArrivalsHeight.constant = Defaults.collectionViewSize
         romanceHeight.constant = Defaults.collectionViewSize
         fantasyHeight.constant = Defaults.collectionViewSize
@@ -79,8 +64,8 @@ class LibraryViewController: UIViewController {
     
     private func setupBackButton() {
         navigationItem.hidesBackButton = true
-                
-        let backButton = UIBarButtonItem(image: nil,  style: .plain, target: self, action: #selector(didTapBackButton(sender:)))
+        
+        let backButton = UIBarButtonItem(image: nil,  style: .plain, target: self, action: #selector(didLibraryButton(sender:)))
         backButton.tintColor = UIColor(named: "c_acent_pink")
         backButton.title = "Library"
         
@@ -135,22 +120,16 @@ class LibraryViewController: UIViewController {
         scienceCollectionView.delegate = self
         
         bannerCollectionView.register(BannerCollectionViewCell.nib, forCellWithReuseIdentifier: BannerCollectionViewCell.identifier)
-        bannerCollectionView.dataSource = self
-        bannerCollectionView.delegate = self
+        
+        bannerCollectionView.reloadData()
+        bannerCollectionView.carouselDataSource = self
+        bannerCollectionView.isAutoscrollEnabled = true
+        bannerCollectionView.autoscrollTimeInterval = 3.0
+        bannerCollectionView.flowLayout.itemSize = CGSize(width: Defaults.width, height: 160)
     }
     
     // MARK: - Objc private methods
-    @objc private func moveToNextBanner() {
-        if currentCellIndex < bannerSlides.count - 1 {
-            currentCellIndex += 1
-        } else {
-            currentCellIndex = 0
-        }
-        bannerCollectionView.scrollToItem(at: IndexPath(row: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
-        pageControl.currentPage = currentCellIndex
-    }
-    
-    @objc private func didTapBackButton(sender: AnyObject) {
+    @objc private func didLibraryButton(sender: AnyObject) {
         print("OPEN A Library")
     }
 }
@@ -159,9 +138,7 @@ class LibraryViewController: UIViewController {
 // MARK: - UICollectionViewDelegate & DataSource
 extension LibraryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == bannerCollectionView {
-            return bannerSlides.count
-        } else if collectionView == newArrivalsCollectionView {
+        if collectionView == newArrivalsCollectionView {
             return booksModel.count
         } else if collectionView == romanceCollectionView {
             return romanceBooks.count
@@ -175,15 +152,8 @@ extension LibraryViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let bookCell = newArrivalsCollectionView.dequeueReusableCell(withReuseIdentifier: BookCollectionViewCell.identifier, for: indexPath) as! BookCollectionViewCell
-        let bannerCell = bannerCollectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionViewCell.identifier, for: indexPath) as! BannerCollectionViewCell
-
-        if collectionView == bannerCollectionView {
-            
-            let banner = bannerSlides[indexPath.row]
-            bannerCell.configure(image: banner.cover)
-            return bannerCell
-        } else if collectionView == newArrivalsCollectionView {
-            
+        
+        if collectionView == newArrivalsCollectionView {
             let book = booksModel[indexPath.row]
             bookCell.configure(label: book.name, image: book.coverUrl, labelColor: "c_white")
             return bookCell
@@ -206,44 +176,39 @@ extension LibraryViewController: UICollectionViewDelegate, UICollectionViewDataS
             return bookCell
         }
     }
+}
+
+// MARK: - CarouselCollectionViewDataSource
+extension LibraryViewController: CarouselCollectionViewDataSource {
+    var numberOfItems: Int {
+        return bannerSlides.count
+    }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == bannerCollectionView {
-            let storyboard = UIStoryboard.init(name: "Recommended", bundle: nil)
-            guard let libraryVC = storyboard.instantiateViewController(identifier: "RecommendedViewController") as? RecommendedViewController else { return }
-            let bookId = bannerSlides[indexPath.row].bookId
-            print("Bookid", bookId)
-            libraryVC.currentCellIndex = bookId
-            self.navigationController?.pushViewController(libraryVC, animated: true)
-            
-        }
-       
+    func carouselCollectionView(_ carouselCollectionView: CarouselCollectionView, cellForItemAt index: Int, fakeIndexPath: IndexPath) -> UICollectionViewCell {
+        let cell = bannerCollectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionViewCell.identifier, for: fakeIndexPath) as! BannerCollectionViewCell
+        let bannerImage = bannerSlides[index].cover
+        cell.configure(image: bannerImage)
+        return cell
+    }
+    
+    func carouselCollectionView(_ carouselCollectionView: CarouselCollectionView, didSelectItemAt index: Int) {
+        let storyboard = UIStoryboard.init(name: "Recommended", bundle: nil)
+        guard let libraryVC = storyboard.instantiateViewController(identifier: "RecommendedViewController") as? RecommendedViewController else { return }
+        let bookId = bannerSlides[index].bookId
+        print("Bookid", bookId)
+        libraryVC.currentCellIndex = bookId
+        self.navigationController?.pushViewController(libraryVC, animated: true)
+    }
+    
+    func carouselCollectionView(_ carouselCollectionView: CarouselCollectionView, didDisplayItemAt index: Int) {
+        pageControl.currentPage = index
     }
 }
 // MARK: - UICollectionViewDelegateFlowLayout
 extension LibraryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == bannerCollectionView {
-            let cellWidth = Defaults.width
-            return CGSize(width: cellWidth, height: 160)
-        } else {
-            let cellWidth = Defaults.width / 3 - 8
-            return CGSize(width: cellWidth, height: Defaults.collectionViewSize)
-        }
-    }
-}
-
-extension LibraryViewController {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView == bannerCollectionView {
-            let currentIndex = Int(scrollView.contentOffset.x / scrollView.bounds.width)
-            currentCellIndex = currentIndex
-            if currentCellIndex == bannerSlides.count {
-                
-            } else {
-                pageControl.currentPage = currentIndex
-            }
-        }
+        let cellWidth = Defaults.width / 3 - 8
+        return CGSize(width: cellWidth, height: Defaults.collectionViewSize)
     }
 }

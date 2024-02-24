@@ -10,5 +10,6 @@ target 'HolyWater-Test' do
   pod 'FirebaseFirestore'
   pod 'FirebaseRemoteConfig'
   pod 'SDWebImage'
+  pod 'CollectionViewPagingLayout'
 
 end

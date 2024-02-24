@@ -22,7 +22,7 @@ class BannerCollectionViewCell: UICollectionViewCell {
     
     func configure(image: String) {
         guard let imageURL = URL(string: image) else { return }
-        cellImage.sd_setImage(with: imageURL)
+        cellImage.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "im_placeholder"))
         cellImage.layer.cornerRadius = 16
     }
 

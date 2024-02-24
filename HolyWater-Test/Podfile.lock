@@ -634,6 +634,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.24):
     - BoringSSL-GRPC/Interface (= 0.0.24)
   - BoringSSL-GRPC/Interface (0.0.24)
+  - CollectionViewPagingLayout (1.0.3)
   - Differentiator (5.0.0)
   - FirebaseABTesting (10.21.0):
     - FirebaseCore (~> 10.0)
@@ -759,6 +760,7 @@ PODS:
   - SDWebImage/Core (5.18.2)
 
 DEPENDENCIES:
+  - CollectionViewPagingLayout
   - FirebaseFirestore
   - FirebaseRemoteConfig
   - RxCocoa
@@ -770,6 +772,7 @@ SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
+    - CollectionViewPagingLayout
     - Differentiator
     - FirebaseABTesting
     - FirebaseCore
@@ -793,6 +796,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: 926fb7a82dc6d2b8e1f2ed7f3a718bce691d1e46
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
+  CollectionViewPagingLayout: 4c51718386157a6f6e37634298e5f2364acc8b7d
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   FirebaseABTesting: 40774deef367dcc7b736b6c26dd59ce0fab42f41
   FirebaseCore: 65a801af84cca84361ef9eac3fd868656968a53b
@@ -813,6 +817,6 @@ SPEC CHECKSUMS:
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
   SDWebImage: c0de394d7cf7f9838aed1fd6bb6037654a4572e4
 
-PODFILE CHECKSUM: 216c7d5363a026eac65d1e4b46396bb21245d166
+PODFILE CHECKSUM: aa0666f976b8f0418b35fae9c99ccfe8a7c4d7c0
 
 COCOAPODS: 1.12.1

@@ -21,8 +21,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="120" height="206"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Beta Before an Alpha" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJZ-aZ-oGM">
-                        <rect key="frame" x="0.0" y="154" width="120" height="52"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Beta Before an Alpha" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJZ-aZ-oGM">
+                        <rect key="frame" x="0.0" y="154" width="120" height="43.666666666666657"/>
                         <fontDescription key="fontDescription" name="NunitoSans10pt-SemiBold" family="Nunito Sans 10pt" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -37,7 +37,6 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="EJZ-aZ-oGM" secondAttribute="bottom" id="0I6-91-N5N"/>
                 <constraint firstItem="npe-Ma-9VL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="E9T-Xf-rrR"/>
                 <constraint firstAttribute="trailing" secondItem="EJZ-aZ-oGM" secondAttribute="trailing" id="Gfq-DQ-66O"/>
                 <constraint firstItem="npe-Ma-9VL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Qfp-YV-53q"/>
@@ -49,6 +48,7 @@
             <connections>
                 <outlet property="cellImage" destination="npe-Ma-9VL" id="WNv-Kc-W7v"/>
                 <outlet property="cellLabel" destination="EJZ-aZ-oGM" id="nI3-C3-DD5"/>
+                <outlet property="imageHeight" destination="eMj-u9-0eZ" id="yBR-7c-7uT"/>
             </connections>
             <point key="canvasLocation" x="71.755725190839698" y="95.070422535211279"/>
         </collectionViewCell>

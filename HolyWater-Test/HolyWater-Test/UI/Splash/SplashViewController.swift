@@ -10,7 +10,7 @@ import RxSwift
 import FirebaseRemoteConfig
 
 
-class SplashScreenViewController: UIViewController {
+class SplashViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet private weak var welcomelbl: UILabel!
@@ -30,7 +30,7 @@ class SplashScreenViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             timer.invalidate()
             let storyboard = UIStoryboard.init(name: "Library", bundle: nil)
-            guard let libraryVC = storyboard.instantiateViewController(identifier: "LibraryScreenViewController") as? LibraryScreenViewController else { return }
+            guard let libraryVC = storyboard.instantiateViewController(identifier: "LibraryViewController") as? LibraryViewController else { return }
             self.navigationController?.pushViewController(libraryVC, animated: true)
         }
     }

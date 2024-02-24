@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		CA00CCD92B84F60A00C5AE78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA00CCD82B84F60A00C5AE78 /* AppDelegate.swift */; };
 		CA00CCDB2B84F60A00C5AE78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA00CCDA2B84F60A00C5AE78 /* SceneDelegate.swift */; };
-		CA00CCDD2B84F60A00C5AE78 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA00CCDC2B84F60A00C5AE78 /* SplashScreenViewController.swift */; };
+		CA00CCDD2B84F60A00C5AE78 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA00CCDC2B84F60A00C5AE78 /* SplashViewController.swift */; };
 		CA00CCE02B84F60A00C5AE78 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA00CCDE2B84F60A00C5AE78 /* SplashScreen.storyboard */; };
 		CA00CCE22B84F60C00C5AE78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA00CCE12B84F60C00C5AE78 /* Assets.xcassets */; };
 		CA00CCE52B84F60C00C5AE78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA00CCE32B84F60C00C5AE78 /* LaunchScreen.storyboard */; };
 		CA00CCEF2B84FEB000C5AE78 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA00CCEE2B84FEAF00C5AE78 /* GoogleService-Info.plist */; };
-		CA5042162B86009300E416C3 /* NunitoSans_10pt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA5042152B86009300E416C3 /* NunitoSans_10pt-Bold.ttf */; };
-		CA50421D2B860F4F00E416C3 /* LibraryScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50421B2B860F4F00E416C3 /* LibraryScreenViewController.swift */; };
+		CA5042162B86009300E416C3 /* NunitoSans-10pt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA5042152B86009300E416C3 /* NunitoSans-10pt-Bold.ttf */; };
+		CA50421D2B860F4F00E416C3 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50421B2B860F4F00E416C3 /* LibraryViewController.swift */; };
 		CA5042222B86130300E416C3 /* json_data.json in Resources */ = {isa = PBXBuildFile; fileRef = CA5042212B86130300E416C3 /* json_data.json */; };
 		CA5042262B861AD800E416C3 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5042252B861AD800E416C3 /* Book.swift */; };
 		CA50422A2B861C8100E416C3 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5042282B861C8100E416C3 /* BookCollectionViewCell.swift */; };
@@ -26,6 +26,17 @@
 		CA99506A2B87734D00A3098D /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9950682B87734D00A3098D /* BannerCollectionViewCell.swift */; };
 		CA99506B2B87734D00A3098D /* BannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA9950692B87734D00A3098D /* BannerCollectionViewCell.xib */; };
 		CA99506D2B87F69600A3098D /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99506C2B87F69600A3098D /* Banner.swift */; };
+		CA99506F2B88887300A3098D /* Recommended.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA99506E2B88887300A3098D /* Recommended.storyboard */; };
+		CA9950712B88888400A3098D /* RecommendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9950702B88888400A3098D /* RecommendedViewController.swift */; };
+		CA9950772B888E5700A3098D /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9950762B888E5700A3098D /* CarouselCollectionViewCell.swift */; };
+		CA99507A2B8892FD00A3098D /* CarouselTestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9950782B8892FD00A3098D /* CarouselTestCollectionViewCell.swift */; };
+		CA99507B2B8892FD00A3098D /* CarouselTestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA9950792B8892FD00A3098D /* CarouselTestCollectionViewCell.xib */; };
+		CA99507D2B8903A500A3098D /* NunitoSans_10pt_SemiExpanded-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA99507C2B8903A500A3098D /* NunitoSans_10pt_SemiExpanded-ExtraBold.ttf */; };
+		CA99507F2B89040E00A3098D /* NunitoSans_10pt-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA99507E2B89040E00A3098D /* NunitoSans_10pt-ExtraBold.ttf */; };
+		CA9950822B89240C00A3098D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9950812B89240C00A3098D /* UIView+Extension.swift */; };
+		CA9950842B892EFA00A3098D /* RecommendedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9950832B892EFA00A3098D /* RecommendedViewModel.swift */; };
+		CA9950862B893F2000A3098D /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9950852B893F2000A3098D /* Carousel.swift */; };
+		CA9950882B8A2AAF00A3098D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9950872B8A2AAF00A3098D /* UIViewController+Extension.swift */; };
 		CEFBD15A6D5B0C6D939CB393 /* Pods_HolyWater_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26C3A9AA6926979B3C44EB2 /* Pods_HolyWater_Test.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,14 +46,14 @@
 		CA00CCD52B84F60A00C5AE78 /* HolyWater-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HolyWater-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA00CCD82B84F60A00C5AE78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA00CCDA2B84F60A00C5AE78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CA00CCDC2B84F60A00C5AE78 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		CA00CCDC2B84F60A00C5AE78 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CA00CCDF2B84F60A00C5AE78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SplashScreen.storyboard; sourceTree = "<group>"; };
 		CA00CCE12B84F60C00C5AE78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA00CCE42B84F60C00C5AE78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA00CCE62B84F60C00C5AE78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA00CCEE2B84FEAF00C5AE78 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		CA5042152B86009300E416C3 /* NunitoSans_10pt-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans_10pt-Bold.ttf"; sourceTree = "<group>"; };
-		CA50421B2B860F4F00E416C3 /* LibraryScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryScreenViewController.swift; sourceTree = "<group>"; };
+		CA5042152B86009300E416C3 /* NunitoSans-10pt-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-10pt-Bold.ttf"; sourceTree = "<group>"; };
+		CA50421B2B860F4F00E416C3 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		CA5042212B86130300E416C3 /* json_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = json_data.json; sourceTree = "<group>"; };
 		CA5042252B861AD800E416C3 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		CA5042282B861C8100E416C3 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -53,6 +64,17 @@
 		CA9950682B87734D00A3098D /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		CA9950692B87734D00A3098D /* BannerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCollectionViewCell.xib; sourceTree = "<group>"; };
 		CA99506C2B87F69600A3098D /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		CA99506E2B88887300A3098D /* Recommended.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Recommended.storyboard; sourceTree = "<group>"; };
+		CA9950702B88888400A3098D /* RecommendedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedViewController.swift; sourceTree = "<group>"; };
+		CA9950762B888E5700A3098D /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
+		CA9950782B8892FD00A3098D /* CarouselTestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTestCollectionViewCell.swift; sourceTree = "<group>"; };
+		CA9950792B8892FD00A3098D /* CarouselTestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselTestCollectionViewCell.xib; sourceTree = "<group>"; };
+		CA99507C2B8903A500A3098D /* NunitoSans_10pt_SemiExpanded-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans_10pt_SemiExpanded-ExtraBold.ttf"; sourceTree = "<group>"; };
+		CA99507E2B89040E00A3098D /* NunitoSans_10pt-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans_10pt-ExtraBold.ttf"; sourceTree = "<group>"; };
+		CA9950812B89240C00A3098D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CA9950832B892EFA00A3098D /* RecommendedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedViewModel.swift; sourceTree = "<group>"; };
+		CA9950852B893F2000A3098D /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
+		CA9950872B8A2AAF00A3098D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		D09C3533F7514C8B98439B5B /* Pods-HolyWater-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HolyWater-Test.release.xcconfig"; path = "Target Support Files/Pods-HolyWater-Test/Pods-HolyWater-Test.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +128,7 @@
 		CA00CCD72B84F60A00C5AE78 /* HolyWater-Test */ = {
 			isa = PBXGroup;
 			children = (
+				CA9950802B8923CE00A3098D /* Extension */,
 				CA5042232B861AA300E416C3 /* Models */,
 				CA5042172B860E9400E416C3 /* UI */,
 				CA00CCEC2B84F65100C5AE78 /* Application */,
@@ -139,8 +162,10 @@
 		CA5042142B86007600E416C3 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				CA99507E2B89040E00A3098D /* NunitoSans_10pt-ExtraBold.ttf */,
 				CA50422C2B862BBF00E416C3 /* NunitoSans_10pt-SemiBold.ttf */,
-				CA5042152B86009300E416C3 /* NunitoSans_10pt-Bold.ttf */,
+				CA99507C2B8903A500A3098D /* NunitoSans_10pt_SemiExpanded-ExtraBold.ttf */,
+				CA5042152B86009300E416C3 /* NunitoSans-10pt-Bold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -159,7 +184,7 @@
 		CA5042182B860E9800E416C3 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				CA00CCDC2B84F60A00C5AE78 /* SplashScreenViewController.swift */,
+				CA00CCDC2B84F60A00C5AE78 /* SplashViewController.swift */,
 				CA00CCDE2B84F60A00C5AE78 /* SplashScreen.storyboard */,
 			);
 			path = Splash;
@@ -168,7 +193,7 @@
 		CA5042192B860F0E00E416C3 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				CA50421B2B860F4F00E416C3 /* LibraryScreenViewController.swift */,
+				CA50421B2B860F4F00E416C3 /* LibraryViewController.swift */,
 				CA50422E2B862D5500E416C3 /* BookViewModel.swift */,
 				CA9950662B8633C000A3098D /* Library.storyboard */,
 			);
@@ -178,6 +203,9 @@
 		CA50421A2B860F2000E416C3 /* Recommended */ = {
 			isa = PBXGroup;
 			children = (
+				CA99506E2B88887300A3098D /* Recommended.storyboard */,
+				CA9950702B88888400A3098D /* RecommendedViewController.swift */,
+				CA9950832B892EFA00A3098D /* RecommendedViewModel.swift */,
 			);
 			path = Recommended;
 			sourceTree = "<group>";
@@ -187,6 +215,7 @@
 			children = (
 				CA5042252B861AD800E416C3 /* Book.swift */,
 				CA99506C2B87F69600A3098D /* Banner.swift */,
+				CA9950852B893F2000A3098D /* Carousel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,8 +227,20 @@
 				CA5042292B861C8100E416C3 /* BookCollectionViewCell.xib */,
 				CA9950682B87734D00A3098D /* BannerCollectionViewCell.swift */,
 				CA9950692B87734D00A3098D /* BannerCollectionViewCell.xib */,
+				CA9950762B888E5700A3098D /* CarouselCollectionViewCell.swift */,
+				CA9950792B8892FD00A3098D /* CarouselTestCollectionViewCell.xib */,
+				CA9950782B8892FD00A3098D /* CarouselTestCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		CA9950802B8923CE00A3098D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CA9950812B89240C00A3098D /* UIView+Extension.swift */,
+				CA9950872B8A2AAF00A3098D /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,12 +304,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA50422D2B862BBF00E416C3 /* NunitoSans_10pt-SemiBold.ttf in Resources */,
+				CA99507F2B89040E00A3098D /* NunitoSans_10pt-ExtraBold.ttf in Resources */,
 				CA5042222B86130300E416C3 /* json_data.json in Resources */,
 				CA99506B2B87734D00A3098D /* BannerCollectionViewCell.xib in Resources */,
 				CA9950672B8633C000A3098D /* Library.storyboard in Resources */,
 				CA00CCE52B84F60C00C5AE78 /* LaunchScreen.storyboard in Resources */,
+				CA99507D2B8903A500A3098D /* NunitoSans_10pt_SemiExpanded-ExtraBold.ttf in Resources */,
 				CA00CCE22B84F60C00C5AE78 /* Assets.xcassets in Resources */,
-				CA5042162B86009300E416C3 /* NunitoSans_10pt-Bold.ttf in Resources */,
+				CA5042162B86009300E416C3 /* NunitoSans-10pt-Bold.ttf in Resources */,
+				CA99506F2B88887300A3098D /* Recommended.storyboard in Resources */,
+				CA99507B2B8892FD00A3098D /* CarouselTestCollectionViewCell.xib in Resources */,
 				CA50422B2B861C8100E416C3 /* BookCollectionViewCell.xib in Resources */,
 				CA00CCE02B84F60A00C5AE78 /* SplashScreen.storyboard in Resources */,
 				CA00CCEF2B84FEB000C5AE78 /* GoogleService-Info.plist in Resources */,
@@ -324,14 +369,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA9950882B8A2AAF00A3098D /* UIViewController+Extension.swift in Sources */,
 				CA99506A2B87734D00A3098D /* BannerCollectionViewCell.swift in Sources */,
-				CA50421D2B860F4F00E416C3 /* LibraryScreenViewController.swift in Sources */,
+				CA9950822B89240C00A3098D /* UIView+Extension.swift in Sources */,
+				CA50421D2B860F4F00E416C3 /* LibraryViewController.swift in Sources */,
+				CA9950862B893F2000A3098D /* Carousel.swift in Sources */,
 				CA99506D2B87F69600A3098D /* Banner.swift in Sources */,
 				CA50422F2B862D5500E416C3 /* BookViewModel.swift in Sources */,
-				CA00CCDD2B84F60A00C5AE78 /* SplashScreenViewController.swift in Sources */,
+				CA00CCDD2B84F60A00C5AE78 /* SplashViewController.swift in Sources */,
+				CA9950772B888E5700A3098D /* CarouselCollectionViewCell.swift in Sources */,
 				CA00CCD92B84F60A00C5AE78 /* AppDelegate.swift in Sources */,
 				CA50422A2B861C8100E416C3 /* BookCollectionViewCell.swift in Sources */,
+				CA99507A2B8892FD00A3098D /* CarouselTestCollectionViewCell.swift in Sources */,
+				CA9950842B892EFA00A3098D /* RecommendedViewModel.swift in Sources */,
 				CA5042262B861AD800E416C3 /* Book.swift in Sources */,
+				CA9950712B88888400A3098D /* RecommendedViewController.swift in Sources */,
 				CA00CCDB2B84F60A00C5AE78 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,8 +543,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = SplashScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -500,9 +552,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.books.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -520,8 +576,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = SplashScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -529,9 +585,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.books.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

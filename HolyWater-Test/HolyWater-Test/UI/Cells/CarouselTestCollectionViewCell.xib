@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CarouselTestCollectionViewCell" customModule="HolyWater_Test" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="494" height="285"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="494" height="285"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="im_banner" translatesAutoresizingMaskIntoConstraints="NO" id="N2Q-Qq-QJv">
+                        <rect key="frame" x="147" y="0.0" width="200" height="185"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="qqq-EC-QKv"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="N2Q-Qq-QJv" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="57h-9M-2Zc"/>
+                <constraint firstAttribute="bottom" secondItem="N2Q-Qq-QJv" secondAttribute="bottom" constant="100" id="Rgp-Jo-spy"/>
+                <constraint firstItem="N2Q-Qq-QJv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nuY-6l-DUo"/>
+            </constraints>
+            <size key="customSize" width="494" height="285"/>
+            <connections>
+                <outlet property="cellImage" destination="N2Q-Qq-QJv" id="DMu-a4-fmd"/>
+            </connections>
+            <point key="canvasLocation" x="297.70992366412213" y="44.718309859154935"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="im_banner" width="343" height="160"/>
+    </resources>
+</document>

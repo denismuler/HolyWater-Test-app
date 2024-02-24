@@ -4,8 +4,10 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>NunitoSans_10pt-ExtraBold.ttf</string>
+		<string>NunitoSans_10pt_SemiExpanded-ExtraBold.ttf</string>
 		<string>NunitoSans_10pt-SemiBold.ttf</string>
-		<string>NunitoSans_10pt-Bold.ttf</string>
+		<string>NunitoSans-10pt-Bold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

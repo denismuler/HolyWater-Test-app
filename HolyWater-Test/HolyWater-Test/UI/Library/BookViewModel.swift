@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import RxCocoa
 import RxDataSources
 
@@ -14,8 +13,6 @@ import RxSwift
 
 class BooksViewModel {
     private let disposeBag = DisposeBag()
-
-    private static let preferredGenres = ["Fantasy", "Science", "Romance"]
 
     func fetchData() -> Observable<(books: [Book], topBannerSlides: [Banner])> {
         guard let path = Bundle.main.path(forResource: "json_data", ofType: "json") else {

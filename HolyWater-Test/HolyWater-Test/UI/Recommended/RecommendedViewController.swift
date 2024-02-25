@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import CollectionViewPagingLayout
-import RxSwift
 
 class RecommendedViewController: UIViewController {
     // MARK: - IBOutlets
@@ -26,17 +25,16 @@ class RecommendedViewController: UIViewController {
     @IBOutlet private weak var summarylbl: UILabel!
     @IBOutlet private weak var youWillLikeHeight: NSLayoutConstraint!
     
-    var previousCellIndex: Int?
     // MARK: - Properties
     private let viewModel = RecommendedViewModel()
     private var carouselModel: [Carousel] = []
     private var recommendedModel: [Book] = []
-    private let disposeBag = DisposeBag()
-    var currentCellIndex: Int?
     
     private var isViewShowedFirstly: Bool = false
     private let layout = CollectionViewPagingLayout()
     
+    var currentCellIndex: Int?
+    var previousCellIndex: Int?
     
     // MARK: - VC Lifecycle
     override func viewDidLoad() {
@@ -49,8 +47,32 @@ class RecommendedViewController: UIViewController {
         backOnSwipe()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    // MARK: - Private methods
+    private func setupUI() {
+        readNowButton.layer.cornerRadius = 24
+        roundView.roundCorner(with: 20, align: .upper)
+        youWillLikeHeight.constant = Constants.collectionViewSize
+        authorName.alpha = 0.8
+    }
+    
+    private func fetchData() {
+        viewModel.fetchRemoteConfig { [weak self] error in
+            if let error = error {
+                print("Error fetching remote config: \(error)")
+            } else {
+                guard let carousel = self?.viewModel.carousel,
+                      let recommended = self?.viewModel.recommended else { return }
+                self?.carouselModel = carousel
+                self?.recommendedModel = recommended
+                
+                self?.youWillAlsoLikeCollectionView.reloadData()
+                self?.carouselCollectionView.reloadData()
+                self?.showSelectedPage()
+            }
+        }
+    }
+    
+    private func showSelectedPage() {
         carouselCollectionView.isUserInteractionEnabled = false
         layout.setCurrentPage(currentCellIndex ?? 0, animated: true) {
             self.updateBookInfo(with: self.carouselModel[self.currentCellIndex ?? 0])
@@ -58,31 +80,6 @@ class RecommendedViewController: UIViewController {
             self.isViewShowedFirstly = true
             self.carouselCollectionView.isUserInteractionEnabled = true
         }
-    }
-    
-    // MARK: - Private methods
-    private func setupUI() {
-        readNowButton.layer.cornerRadius = 24
-        roundView.roundCorner(with: 20, align: .upper)
-        youWillLikeHeight.constant = Defaults.collectionViewSize
-    }
-    
-    private func fetchData() {
-        viewModel.fetchData().subscribe(onNext: { [weak self] books in
-            self?.carouselModel = books
-            guard let firstBook = books.first else { return }
-            self?.updateBookInfo(with: firstBook)
-        }, onError: { error in
-            print("Error fetching data: \(error)")
-        })
-        .disposed(by: disposeBag)
-        
-        viewModel.fetchLikedBooksData().subscribe(onNext: { [weak self] books in
-            self?.recommendedModel = books
-        }, onError: { error in
-            print("Error fetching data: \(error)")
-        })
-        .disposed(by: disposeBag)
     }
     
     private func setupCollectionView() {
@@ -136,7 +133,7 @@ class RecommendedViewController: UIViewController {
             
             UIView.animate(withDuration: 0.2, animations: {
                 self.bookName.alpha = 1.0
-                self.authorName.alpha = 1.0
+                self.authorName.alpha = 0.8
                 self.readersCount.alpha = 1.0
                 self.likesCount.alpha = 1.0
                 self.quotesCount.alpha = 1.0
@@ -171,7 +168,7 @@ extension RecommendedViewController: UICollectionViewDelegate, UICollectionViewD
         } else {
             let alsoCell = youWillAlsoLikeCollectionView.dequeueReusableCell(withReuseIdentifier: BookCollectionViewCell.identifier, for: indexPath) as! BookCollectionViewCell
             let alsoLike = recommendedModel[indexPath.row]
-            alsoCell.configure(label: alsoLike.name, image: alsoLike.coverUrl, labelColor: "c_lbl_summary")
+            alsoCell.configure(label: alsoLike.name, image: alsoLike.coverUrl, labelColor: Constants.colorlblsummary)
             return alsoCell
         }
     }
@@ -197,7 +194,6 @@ extension RecommendedViewController {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension RecommendedViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenWidth = UIScreen.main.bounds.width
-        return CGSize(width: screenWidth / 3 - 8, height: Defaults.collectionViewSize)
+        return CGSize(width: Constants.width / 3 - 8, height: Constants.collectionViewSize)
     }
 }

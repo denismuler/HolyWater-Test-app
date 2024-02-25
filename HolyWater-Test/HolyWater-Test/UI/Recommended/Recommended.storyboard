@@ -2,13 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="NunitoSans_10pt-Bold.ttf">
+        <array key="NunitoSans-10pt-Bold.ttf">
             <string>NunitoSans10pt-Bold</string>
         </array>
         <array key="NunitoSans_10pt-ExtraBold.ttf">
@@ -33,8 +34,8 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="im_bg_recommended" translatesAutoresizingMaskIntoConstraints="NO" id="a2X-bC-Hph">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="419"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoey Evers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l92-6t-dyZ">
-                                        <rect key="frame" x="20" y="347.66666666666669" width="353" height="19.333333333333314"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neil Gaiman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l92-6t-dyZ">
+                                        <rect key="frame" x="20" y="357.66666666666669" width="353" height="19.333333333333314"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19.329999999999998" id="Q8r-Xp-ZAP"/>
                                         </constraints>
@@ -42,14 +43,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoey Evers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8d-u7-rpj">
-                                        <rect key="frame" x="20" y="316.33333333333331" width="353" height="27.333333333333314"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="American Gods" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="t8d-u7-rpj">
+                                        <rect key="frame" x="20" y="326.33333333333331" width="353" height="27.333333333333314"/>
                                         <fontDescription key="fontDescription" name="NunitoSans10pt-Bold" family="Nunito Sans 10pt" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s2v-bA-bVJ">
-                                        <rect key="frame" x="0.0" y="67" width="393" height="330"/>
+                                        <rect key="frame" x="0.0" y="80" width="393" height="317"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f6K-qN-8hQ">
                                             <size key="itemSize" width="128" height="128"/>
@@ -72,8 +73,8 @@
                                     <constraint firstAttribute="trailing" secondItem="t8d-u7-rpj" secondAttribute="trailing" constant="20" id="OWa-C0-bpf"/>
                                     <constraint firstAttribute="trailing" secondItem="a2X-bC-Hph" secondAttribute="trailing" id="UlG-9G-Ul9"/>
                                     <constraint firstItem="s2v-bA-bVJ" firstAttribute="leading" secondItem="lGW-ja-13N" secondAttribute="leading" id="VaM-lG-6ek"/>
-                                    <constraint firstItem="s2v-bA-bVJ" firstAttribute="top" secondItem="lGW-ja-13N" secondAttribute="top" constant="67" id="agj-cz-Jp4"/>
-                                    <constraint firstAttribute="bottom" secondItem="l92-6t-dyZ" secondAttribute="bottom" constant="52" id="bXq-3L-XZH"/>
+                                    <constraint firstItem="s2v-bA-bVJ" firstAttribute="top" secondItem="lGW-ja-13N" secondAttribute="top" constant="80" id="agj-cz-Jp4"/>
+                                    <constraint firstAttribute="bottom" secondItem="l92-6t-dyZ" secondAttribute="bottom" constant="42" id="bXq-3L-XZH"/>
                                     <constraint firstItem="l92-6t-dyZ" firstAttribute="leading" secondItem="lGW-ja-13N" secondAttribute="leading" constant="20" id="eni-Ga-pDG"/>
                                     <constraint firstAttribute="bottom" secondItem="a2X-bC-Hph" secondAttribute="bottom" id="h7d-o3-VN9"/>
                                     <constraint firstItem="l92-6t-dyZ" firstAttribute="centerX" secondItem="lGW-ja-13N" secondAttribute="centerX" id="sQ7-ua-eaT"/>
@@ -218,7 +219,7 @@
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUu-1i-qyF">
                                                 <rect key="frame" x="49" y="638.33333333333326" width="295" height="48"/>
-                                                <color key="backgroundColor" name="c_acent_pink"/>
+                                                <color key="backgroundColor" name="c_pink"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="Idn-bJ-qqL"/>
                                                 </constraints>
@@ -306,9 +307,6 @@
     </scenes>
     <resources>
         <image name="im_bg_recommended" width="375" height="419"/>
-        <namedColor name="c_acent_pink">
-            <color red="0.81568627450980391" green="0.0" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="c_disabled_gray">
             <color red="0.85098039215686272" green="0.83529411764705885" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -317,6 +315,9 @@
         </namedColor>
         <namedColor name="c_lbl_summary">
             <color red="0.22352941176470589" green="0.21176470588235294" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="c_pink">
+            <color red="0.8666666666666667" green="0.28235294117647058" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

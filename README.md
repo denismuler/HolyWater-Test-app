@@ -1,2 +1,2 @@
 # HolyWater-Test-app
- HolyWater test app. MVVM RxSwift
+ HolyWater test app. MVVM UIKit

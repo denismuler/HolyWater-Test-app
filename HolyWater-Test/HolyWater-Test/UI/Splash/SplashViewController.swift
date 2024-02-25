@@ -6,20 +6,16 @@
 //
 
 import UIKit
-import RxSwift
-import FirebaseRemoteConfig
-
 
 class SplashViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet private weak var welcomelbl: UILabel!
     @IBOutlet private weak var loadingProgress: UIProgressView!
-    
+        
     // MARK: - VC lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         loadingProgress.progress = 0.0
         
@@ -47,4 +43,3 @@ class SplashViewController: UIViewController {
         }
     }
 }
-

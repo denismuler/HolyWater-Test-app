@@ -6,61 +6,69 @@
 //
 
 import Foundation
-import RxSwift
 
 class RecommendedViewModel {
-    func fetchData() -> Observable<[Carousel]> {
-        guard let path = Bundle.main.path(forResource: "json_data", ofType: "json") else {
-            return Observable.just([])
-        }
-        
-        do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path))
-            let decoder = JSONDecoder()
-            let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            
-            guard let booksArray = json?["details_carousel"] as? [[String: Any]] else {
-                print("Error: Unable to extract 'books' array from JSON")
-                return Observable.just([])
+    
+    private let remoteConfigManager = FirebaseRemoteConfigManager.shared
+    public var carousel: [Carousel] = []
+    public var recommended: [Book] = []
+    
+    func fetchRemoteConfig(completion: @escaping (Error?) -> Void) {
+        remoteConfigManager.fetchRemoteConfig { [weak self] error in
+            if let error = error {
+                completion(error)
+            } else {
+                self?.updateCarousel()
+                self?.updateRecommended()
+                completion(nil)
             }
-            
-            let books = try decoder.decode([Carousel].self, from: JSONSerialization.data(withJSONObject: booksArray))
-            
-            return Observable.just(books)
-        } catch {
-            print("Error decoding JSON: \(error)")
-            return Observable.just([])
         }
     }
+
+    func getJsonData() -> String {
+        return remoteConfigManager.getConfigValue(forKey: "json_data")
+    }
     
-    func fetchLikedBooksData() -> Observable<[Book]> {
-        guard let path = Bundle.main.path(forResource: "json_data", ofType: "json") else {
-            return Observable.just([])
+    func getDetailsCarousel() -> String {
+        return remoteConfigManager.getConfigValue(forKey: "details_carousel")
+    }
+
+    private func updateCarousel() {
+        if let jsonData = getDetailsCarousel().data(using: .utf8) {
+            do {
+                let decoder = JSONDecoder()
+                let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
+                
+                if let jsonDict = jsonObject as? [String: Any],
+                   let carouselArray = jsonDict["books"] as? [[String: Any]] {
+                    self.carousel = try decoder.decode([Carousel].self, from: JSONSerialization.data(withJSONObject: carouselArray))
+                }
+            } catch {
+                print("Error decoding JSON: \(error)")
+            }
         }
-        
-        do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path))
-            let decoder = JSONDecoder()
-            let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            
-            guard let booksArray = json?["books"] as? [[String: Any]] else {
-                print("Error: Unable to extract 'books' array from JSON")
-                return Observable.just([])
+    }
+
+    
+    private func updateRecommended() {
+        if let jsonData = getJsonData().data(using: .utf8) {
+            do {
+                let decoder = JSONDecoder()
+                let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
+                
+                guard let jsonDict = jsonObject as? [String: Any],
+                      let booksArray = jsonDict["books"] as? [[String: Any]] else { return }
+                let books = try decoder.decode([Book].self, from: JSONSerialization.data(withJSONObject: booksArray))
+                
+                guard let jsonDict = jsonObject as? [String: Any],
+                      let recommendedArray = jsonDict["you_will_like_section"] as? [Int] else { return }
+                
+                let recommendedBooks = books.filter { recommendedArray.contains($0.id) }
+                recommended = recommendedBooks
+                   
+            } catch {
+                print("Error decoding JSON: \(error)")
             }
-            
-            let books = try decoder.decode([Book].self, from: JSONSerialization.data(withJSONObject: booksArray))
-            
-            guard let youWillAlsoLikeArray = json?["you_will_like_section"] as? [Int] else {
-                print("Error: Unable to extract 'you_will_like_section' array from JSON")
-                return Observable.just([])
-            }
-            
-            let recommendedBooks = books.filter { youWillAlsoLikeArray.contains($0.id) }
-            
-            return Observable.just(recommendedBooks)
-        } catch {
-            print("Error decoding JSON: \(error)")
-            return Observable.just([])
         }
     }
 }
